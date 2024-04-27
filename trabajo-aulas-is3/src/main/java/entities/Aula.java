@@ -19,6 +19,60 @@ public class Aula {
 		this.tieneProyector = tieneProyector;
 		this.capacidad = capacidad;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getEdificio() {
+		return edificio;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public boolean isEsLaboratorio() {
+		return esLaboratorio;
+	}
+
+	public boolean isTieneProyector() {
+		return tieneProyector;
+	}
+
+	public int getCapacidad() {
+		return capacidad;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setEdificio(String edificio) {
+		this.edificio = edificio;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public void setEsLaboratorio(boolean esLaboratorio) {
+		this.esLaboratorio = esLaboratorio;
+	}
+
+	public void setTieneProyector(boolean tieneProyector) {
+		this.tieneProyector = tieneProyector;
+	}
+
+	public void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
+	}
+
+	@Override
+	public String toString() {
+		return "Aula [id=" + id + ", edificio=" + edificio + ", numero=" + numero + ", esLaboratorio=" + esLaboratorio
+				+ ", tieneProyector=" + tieneProyector + ", capacidad=" + capacidad + "]";
+	}
 	
 
 	
