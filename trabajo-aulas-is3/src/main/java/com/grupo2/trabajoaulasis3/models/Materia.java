@@ -1,8 +1,8 @@
-package models;
+package com.grupo2.trabajoaulasis3.models;
 
 import java.time.LocalTime;
-
-import entities.Aula;
+import com.grupo2.trabajoaulasis3.entities.Aula;
+import com.grupo2.trabajoaulasis3.entities.Docente;
 
 public class Materia {
 	private String nombre;
@@ -10,17 +10,19 @@ public class Materia {
 	private Aula aula;
 	private String dia;
 	private LocalTime horario;
+	private Docente docente;
 	
 	public Materia() {}
 
-	public Materia(String nombre, int year, Aula aula, String dia, LocalTime horario) {
+	public Materia(String nombre, int year, String dia, LocalTime horario, Aula aula, Docente docente) {
 		this.nombre = nombre;
 		this.year = year;
-		this.aula = aula;
 		this.dia = dia;
 		this.horario = horario;
+		this.aula = aula;
+		this.docente = docente;
 	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -41,6 +43,10 @@ public class Materia {
 		return horario;
 	}
 
+	public Docente getDocente() {
+		return docente;
+	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -59,6 +65,10 @@ public class Materia {
 
 	public void setHorario(LocalTime horario) {
 		this.horario = horario;
+	}
+
+	public void setDocente(Docente docente) {
+		this.docente = docente;
 	}
 	
 	

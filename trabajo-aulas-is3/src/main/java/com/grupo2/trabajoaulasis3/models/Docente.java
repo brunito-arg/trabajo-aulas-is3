@@ -1,4 +1,4 @@
-package models;
+package com.grupo2.trabajoaulasis3.models;
 
 public class Docente {
 	private String nombre;

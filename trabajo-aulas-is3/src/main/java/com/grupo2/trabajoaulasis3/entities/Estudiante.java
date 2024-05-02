@@ -1,9 +1,21 @@
-package entities;
+package com.grupo2.trabajoaulasis3.entities;
 
+import java.util.List;
+
+import jakarta.persistence.*;
+
+@Entity
 public class Estudiante {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String nombre;
+	
 	private int year;
+	
+	@ManyToMany(mappedBy = "estudiantes")
+	private List<Materia> materias;
 	
 	public Estudiante() {}
 
@@ -11,6 +23,7 @@ public class Estudiante {
 		this.id = id;
 		this.nombre = nombre;
 		this.year = year;
+		
 	}
 
 	public int getId() {
@@ -24,6 +37,10 @@ public class Estudiante {
 	public int getYear() {
 		return year;
 	}
+	
+	public List<Materia> getMaterias() {
+		return materias;
+	}
 
 	public void setId(int id) {
 		this.id = id;
@@ -35,6 +52,10 @@ public class Estudiante {
 
 	public void setYear(int year) {
 		this.year = year;
+	}
+
+	public void setMaterias(List<Materia> materias) {
+		this.materias = materias;
 	}
 
 	@Override

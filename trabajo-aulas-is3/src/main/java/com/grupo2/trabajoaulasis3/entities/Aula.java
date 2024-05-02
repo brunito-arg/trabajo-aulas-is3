@@ -1,7 +1,12 @@
-package entities;
+package com.grupo2.trabajoaulasis3.entities;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Aula {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String edificio;
 	private int numero;
