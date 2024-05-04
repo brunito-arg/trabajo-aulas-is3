@@ -13,7 +13,7 @@ public class Aula {
 	private boolean esLaboratorio;
 	private boolean tieneProyector;
 	private int capacidad;
-	
+	//
 	public Aula() {}
 
 	public Aula(int id, String edificio, int numero, boolean esLaboratorio, boolean tieneProyector, int capacidad) {
