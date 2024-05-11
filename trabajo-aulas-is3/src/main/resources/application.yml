@@ -1,8 +1,8 @@
 spring:
   application:
-    name: trabajo-aulas-is3
+    name: is3_tp
   datasource:
-    url: jdbc:mysql://localhost:3306/trabajo-aulas-is3-grupo2
+    url: jdbc:mysql://localhost:3306/is3_tp
     username: root
     password: loquesea2008
   jpa:
