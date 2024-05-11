@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 import com.grupo2.trabajoaulasis3.entities.Docente;
 
 @Repository("docenteRepository")
-public interface IDocenteRepository {
+public interface IDocenteRepository extends JpaRepository <Docente, Serializable>{
 
+	public abstract Docente findById(int id);
+	
+	public abstract Docente findByNombre(String nombre);
+	
 }
