@@ -27,5 +27,27 @@ public interface IAulaRepository extends JpaRepository <Aula, Serializable>{
 	
 	public abstract List<Aula> findByTieneProyectorFalse();
 	
+	public abstract List<Aula> findByEdificioAndEsLaboratorioTrue(String edificio);
+
+	public abstract List<Aula> findByEdificioAndTieneProyectorTrue(String edificio);
+
+	public abstract List<Aula> findByEdificioAndEsLaboratorioFalse(String edificio);
+
+	public abstract List<Aula> findByEdificioAndTieneProyectorFalse(String edificio);
+
+	public abstract List<Aula> findByEdificioAndCapacidadGreaterThanEqual(String edificio, int capacidad);
+
+	public abstract List<Aula> findByEdificioAndCapacidadLessThanEqual(String edificio, int capacidad);
 	
+	public abstract List<Aula> findByEsLaboratorioTrueAndCapacidadGreaterThanEqual(int capacidad);
+
+	public abstract List<Aula> findByTieneProyectorTrueAndCapacidadLessThanEqual(int capacidad);
+
+	public abstract List<Aula> findByTieneProyectorFalseAndCapacidadLessThanEqual(int capacidad);
+
+	public abstract List<Aula> findByEdificioAndEsLaboratorioTrueAndCapacidadGreaterThanEqual(String edificio, int capacidad);
+
+	public abstract List<Aula> findByEdificioAndTieneProyectorTrueAndCapacidadLessThanEqual(String edificio, int capacidad);
+
+	public abstract List<Aula> findByEdificioAndTieneProyectorFalseAndCapacidadLessThanEqual(String edificio, int capacidad);
 }
