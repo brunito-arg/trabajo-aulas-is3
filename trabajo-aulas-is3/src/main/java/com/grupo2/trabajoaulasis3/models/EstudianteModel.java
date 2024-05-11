@@ -4,14 +4,14 @@ import java.util.List;
 
 import com.grupo2.trabajoaulasis3.entities.Materia;
 
-public class Estudiante {
+public class EstudianteModel {
 	private String nombre;
 	private int year;
 	private List<Materia> materias;
 
-	public Estudiante() {}
+	public EstudianteModel() {}
 
-	public Estudiante(String nombre, int year) {
+	public EstudianteModel(String nombre, int year) {
 		this.nombre = nombre;
 		this.year = year;
 	}

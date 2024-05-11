@@ -1,15 +1,15 @@
 package com.grupo2.trabajoaulasis3.models;
 
-public class Aula {
+public class AulaModel {
 	private String edificio;
 	private int numero;
 	private boolean esLaboratorio;
 	private boolean tieneProyector;
 	private int capacidad;
 	
-	public Aula() {}
+	public AulaModel() {}
 	
-	public Aula(String edificio, int numero, boolean esLaboratorio, boolean tieneProyector, int capacidad) {
+	public AulaModel(String edificio, int numero, boolean esLaboratorio, boolean tieneProyector, int capacidad) {
 		this.edificio = edificio;
 		this.numero = numero;
 		this.esLaboratorio = esLaboratorio;

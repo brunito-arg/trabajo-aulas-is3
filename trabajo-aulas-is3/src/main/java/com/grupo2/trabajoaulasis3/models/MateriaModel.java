@@ -4,7 +4,7 @@ import java.time.LocalTime;
 import com.grupo2.trabajoaulasis3.entities.Aula;
 import com.grupo2.trabajoaulasis3.entities.Docente;
 
-public class Materia {
+public class MateriaModel {
 	private String nombre;
 	private int year;
 	private Aula aula;
@@ -12,9 +12,9 @@ public class Materia {
 	private LocalTime horario;
 	private Docente docente;
 	
-	public Materia() {}
+	public MateriaModel() {}
 
-	public Materia(String nombre, int year, String dia, LocalTime horario, Aula aula, Docente docente) {
+	public MateriaModel(String nombre, int year, String dia, LocalTime horario, Aula aula, Docente docente) {
 		this.nombre = nombre;
 		this.year = year;
 		this.dia = dia;

@@ -1,11 +1,11 @@
 package com.grupo2.trabajoaulasis3.models;
 
-public class Docente {
+public class DocenteModel {
 	private String nombre;
 	
-	public Docente() {}
+	public DocenteModel() {}
 
-	public Docente(String nombre) {
+	public DocenteModel(String nombre) {
 		this.nombre = nombre;
 	}
 
