@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Información de la Materia</title>
+</head>
+<body>
+    <h1>Información de la Materia</h1>
+    <p>Nombre de la Materia: <span th:text="${materia.nombre}"></span></p>
+    <p>Año de la Materia: <span th:text="${materia.year}"></span></p>
+    <p>Día: <span th:text="${materia.dia}"></span></p>
+    <p>Horario: <span th:text="${materia.horario}"></span></p>
+    <p>Docente: <span th:text="${materia.docente.nombre}"></span></p>
+    <p>Aula: <span th:text="${materia.aula.edificio} + ' - ' + ${materia.aula.numero}"></span></p>
+    <h2>Estudiantes:</h2>
+    <ul>
+        <li th:each="estudiante : ${materia.estudiantes}">
+            <span th:text="${estudiante.nombre}"></span>
+        </li>
+    </ul>
+</body>
+</html>
