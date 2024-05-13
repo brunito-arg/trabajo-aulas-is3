@@ -10,15 +10,17 @@ public class MateriaModel {
 	private Aula aula;
 	private String dia;
 	private LocalTime horario;
+	private boolean necesitaLaboratorio;
 	private Docente docente;
 	
 	public MateriaModel() {}
 
-	public MateriaModel(String nombre, int year, String dia, LocalTime horario, Aula aula, Docente docente) {
+	public MateriaModel(String nombre, int year, String dia, LocalTime horario, boolean necesitaLaboratorio, Aula aula, Docente docente) {
 		this.nombre = nombre;
 		this.year = year;
 		this.dia = dia;
 		this.horario = horario;
+		this.necesitaLaboratorio = necesitaLaboratorio;
 		this.aula = aula;
 		this.docente = docente;
 	}
@@ -43,6 +45,10 @@ public class MateriaModel {
 		return horario;
 	}
 
+	public boolean isNecesitaLaboratorio() {
+		return necesitaLaboratorio;
+	}
+	
 	public Docente getDocente() {
 		return docente;
 	}
@@ -67,9 +73,14 @@ public class MateriaModel {
 		this.horario = horario;
 	}
 
+	public void setNecesitaLaboratorio(boolean necesitaLaboratorio) {
+		this.necesitaLaboratorio = necesitaLaboratorio;
+	}
+	
 	public void setDocente(Docente docente) {
 		this.docente = docente;
 	}
+
 	
 	
 }

@@ -19,6 +19,8 @@ public class Materia {
 	
 	private LocalTime horario;
 	
+	private boolean necesitaLaboratorio;
+	
 	@ManyToOne
 	private Aula aula;
 	
@@ -34,12 +36,13 @@ public class Materia {
 	
 	public Materia() {}
 
-	public Materia(int id, String nombre, int year, String dia, LocalTime horario, Aula aula, Docente docente) {
+	public Materia(int id, String nombre, int year, String dia, LocalTime horario, boolean necesitaLaboratorio, Aula aula, Docente docente) {
 		this.id = id;
 		this.nombre = nombre;
 		this.year = year;
 		this.dia = dia;
 		this.horario = horario;
+		this.necesitaLaboratorio = necesitaLaboratorio;
 		this.aula = aula;
 		this.docente = docente;
 	}
@@ -68,6 +71,9 @@ public class Materia {
 		return horario;
 	}
 
+	public boolean isNecesitaLaboratorio() {
+		return necesitaLaboratorio;
+	}
 	
 	public Docente getDocente() {
 		return docente;
@@ -101,6 +107,10 @@ public class Materia {
 		this.horario = horario;
 	}
 
+	public void setNecesitaLaboratorio(boolean necesitaLaboratorio) {
+		this.necesitaLaboratorio = necesitaLaboratorio;
+	}
+
 	public void setDocente(Docente docente) {
 		this.docente = docente;
 	}
@@ -115,6 +125,9 @@ public class Materia {
 				+ ", horario=" + horario + "]";
 	}
 
+	
+
+	
 
 	
 	

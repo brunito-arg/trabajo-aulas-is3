@@ -23,5 +23,7 @@ public class MateriaController {
         model.addAttribute("materia", materia);
         return "Materias.html"; // Nombre de la vista
     }
+    
+ 
 }
 
