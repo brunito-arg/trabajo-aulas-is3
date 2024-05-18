@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8")/>
-		<title>AULAS</title>
-	</head>
-	<body>
-		Hola mundo test
-	</body>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${titulo}">Lista de materias</title>
+</head>
+<body>
+    <h1 th:text="${titulo}">Lista de materias</h1>
+    <ul>
+        <li th:each="materia : ${lista}">
+            <span th:text="${materia.nombre}"></span>
+        </li>
+    </ul>
+</body>
 </html>
