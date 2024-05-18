@@ -4,9 +4,10 @@ import com.grupo2.trabajoaulasis3.entities.Materia;
 
 import java.util.List;
 
+
 public interface IMateriaService {
 
-    public List<Materia> getAll();
+    public List<Materia> findAll();
 
     public Materia insertOrUpdate(Materia m);
 

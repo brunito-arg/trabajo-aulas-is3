@@ -6,9 +6,11 @@ import com.grupo2.trabajoaulasis3.repositories.IMateriaRepository;
 import com.grupo2.trabajoaulasis3.services.IMateriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("materiaService")
 public class MateriaService implements IMateriaService {
 
     @Autowired
@@ -16,7 +18,7 @@ public class MateriaService implements IMateriaService {
     private IMateriaRepository materiaRepository;
 
     @Override
-    public List<Materia> getAll() {
+    public List<Materia> findAll() {
         return materiaRepository.findAll();
     }
 

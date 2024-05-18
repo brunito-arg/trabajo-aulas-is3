@@ -24,4 +24,8 @@ public interface IMateriaRepository extends JpaRepository <Materia, Serializable
 	
 	public abstract Materia findByNombre(Docente docente);
 	
+	public abstract List<Materia> findAll();
+	
+	
+	
 }

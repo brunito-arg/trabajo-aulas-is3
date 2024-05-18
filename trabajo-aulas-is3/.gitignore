@@ -34,4 +34,4 @@ build/
 
 
 ### archivos ignorados ###
-application.yml
+src/main/resources/application.yml
