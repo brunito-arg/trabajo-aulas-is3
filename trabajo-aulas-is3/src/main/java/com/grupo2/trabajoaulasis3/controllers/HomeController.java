@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grupo2.trabajoaulasis3.entities.Materia;
 import com.grupo2.trabajoaulasis3.services.IMateriaService;
@@ -31,9 +32,21 @@ public class HomeController {
 		
 		
 		model.addAttribute("titulo", "Lista de materias");
-		model.addAttribute("lista", materiaLista);
+		model.addAttribute("lista", lista);
 		
 		return ViewRouterHelper.HOME_INDEX;
 		
 	}
+	
+	@GetMapping("/buscar")
+    public String buscar(@RequestParam("id") int id, Model model) {
+        Materia materia = materiaService.findByIdMateria(id);
+        if (materia != null) {
+            model.addAttribute("materia", materia);
+            return "Materias.html"; // Asegúrate de que esta vista esté configurada correctamente
+        } else {
+            model.addAttribute("error", "Materia no encontrada");
+            return "Error.html"; // Vista de error
+        }
+    }
 }
