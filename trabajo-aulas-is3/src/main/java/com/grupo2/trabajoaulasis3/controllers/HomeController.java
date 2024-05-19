@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.grupo2.trabajoaulasis3.entities.Materia;
 import com.grupo2.trabajoaulasis3.services.IMateriaService;
 
+import com.grupo2.trabajosaulasis3.helper.ViewRouterHelper;
+
 
 @Controller
 @RequestMapping("/inicio")
@@ -22,16 +24,16 @@ public class HomeController {
 	@Qualifier("materiaService")
     private IMateriaService materiaService;
 	
-	@GetMapping("Home")
+	@GetMapping("/home")
 	public String home(Model model) {
 		List<Materia> materiaLista = materiaService.findAll();
 		List<Materia> lista = new ArrayList<Materia>();
 		
 		
 		model.addAttribute("titulo", "Lista de materias");
-		model.addAttribute("lista", lista);
+		model.addAttribute("lista", materiaLista);
 		
-		return "Home.html";
+		return ViewRouterHelper.HOME_INDEX;
 		
 	}
 }
