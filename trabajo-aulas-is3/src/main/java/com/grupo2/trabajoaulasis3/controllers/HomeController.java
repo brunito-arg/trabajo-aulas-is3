@@ -1,6 +1,5 @@
 package com.grupo2.trabajoaulasis3.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grupo2.trabajoaulasis3.entities.Materia;
+import com.grupo2.trabajoaulasis3.helper.ViewRouterHelper;
+import com.grupo2.trabajoaulasis3.services.IAulaService;
 import com.grupo2.trabajoaulasis3.services.IMateriaService;
-
-import com.grupo2.trabajosaulasis3.helper.ViewRouterHelper;
 
 
 @Controller
@@ -25,14 +24,15 @@ public class HomeController {
 	@Qualifier("materiaService")
     private IMateriaService materiaService;
 	
+	
 	@GetMapping("/home")
 	public String home(Model model) {
-		List<Materia> materiaLista = materiaService.findAll();
-		List<Materia> lista = new ArrayList<Materia>();
+		materiaService.asignarAulas();
 		
+		List<Materia> materiaLista = materiaService.findAll();
 		
 		model.addAttribute("titulo", "Lista de materias");
-		model.addAttribute("lista", lista);
+		model.addAttribute("materiaLista", materiaLista);
 		
 		return ViewRouterHelper.HOME_INDEX;
 		
@@ -43,10 +43,11 @@ public class HomeController {
         Materia materia = materiaService.findByIdMateria(id);
         if (materia != null) {
             model.addAttribute("materia", materia);
-            return "Materias.html"; // Asegúrate de que esta vista esté configurada correctamente
+            return "Materias.html"; 
         } else {
             model.addAttribute("error", "Materia no encontrada");
             return "Error.html"; // Vista de error
         }
     }
+	
 }

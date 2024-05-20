@@ -11,6 +11,7 @@ import com.grupo2.trabajoaulasis3.entities.Aula;
 @Repository("aulaRepository")
 public interface IAulaRepository extends JpaRepository <Aula, Serializable>{
 
+	
 	public abstract Aula findById(int id);
 	
 	public abstract List<Aula> findByEdificio(String edificio);
@@ -50,4 +51,6 @@ public interface IAulaRepository extends JpaRepository <Aula, Serializable>{
 	public abstract List<Aula> findByEdificioAndTieneProyectorTrueAndCapacidadLessThanEqual(String edificio, int capacidad);
 
 	public abstract List<Aula> findByEdificioAndTieneProyectorFalseAndCapacidadLessThanEqual(String edificio, int capacidad);
+
+	public abstract List<Aula> findAllOrderByOrderByCapacidadAsc();
 }

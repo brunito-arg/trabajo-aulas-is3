@@ -1,4 +1,4 @@
-package com.grupo2.trabajosaulasis3.helper;
+package com.grupo2.trabajoaulasis3.helper;
 
 public class ViewRouterHelper {
 

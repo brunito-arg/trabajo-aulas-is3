@@ -14,4 +14,11 @@ public interface IMateriaService {
     public Materia findByIdMateria(int idMateria);
 
     public void removeMateria(int idMateria);
+    
+    public void asignarAula(Materia m);
+    
+    public void asignarAulas();
+    
+  
+    
 }
