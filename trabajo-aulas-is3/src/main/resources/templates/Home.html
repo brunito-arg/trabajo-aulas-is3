@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${titulo}">Lista de materias</title>
+    
+</head>
+<body>
+    <h1 th:text="${titulo}">Lista de materias</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Dia</th>
+                <th>Horaio</th>
+                <th>Aula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-info" th:each="materia : ${materiaLista}">
+                <th scope="row" th:text="${materia.id}"></th>
+                <td>
+                    <a style="color: blue"  th:href="@{/materia/{id}(id=${materia.id})}" th:text="${materia.nombre}"></a>
+                </td>
+                <td scope="row" th:text="${materia.dia}"></td>
+                <td scope="row" th:text="${materia.horario}"></td>
+                <td scope="row" th:if="${materia.aula != null} "th:text="${materia.aula.edificio} + ' - ' + ${materia.aula.numero}"></td>
+
+            </tr>
+        </tbody>
+    </table>
+    
+        	<h2>Buscar Materia</h2>
+    	<form th:action="@{/inicio/buscar}" method="get">
+        <label for="id">ID de la Materia:</label>
+        <input type="number" id="id" name="id" required>
+        <button type="submit">Buscar</button>
+    </form>
+    
+    
+</body>
+</html>
