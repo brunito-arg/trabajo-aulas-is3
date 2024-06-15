@@ -1,7 +1,6 @@
 package com.grupo2.trabajoaulasis3.controllers;
 
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,13 +52,16 @@ public class MateriaController {
             // Si todos los parámetros son nulos o vacíos, buscar todas las materias
             materias = materiaRepository.findAll();
         } else {
-            // Caso normal, buscar por criterios
-            materias = materiaRepository.findByCriterios(nombre, dia, horario, edificio);
+            materias = materiaRepository.findByCriterios(
+                    nombre != null && nombre.isEmpty() ? null : nombre,
+                    dia != null && dia.isEmpty() ? null : dia,
+                    horario,
+                    edificio != null && edificio.isEmpty() ? null : edificio);
         }
 
         model.addAttribute("materias", materias);
 
-        return "BusquedaMaterias.html"; // Nombre de la vista HTML que muestra los resultados
+        return "BusquedaMaterias";
     }
  
 }
