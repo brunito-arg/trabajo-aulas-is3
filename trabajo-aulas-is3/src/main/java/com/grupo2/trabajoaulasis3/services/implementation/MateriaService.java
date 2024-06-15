@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @Service("materiaService")
@@ -79,6 +80,9 @@ public class MateriaService implements IMateriaService {
     	
     }
     
+    public List<Materia> buscarPorCriterios(String nombre, String dia, LocalTime horario, String edificio) {
+        return materiaRepository.findByCriterios(nombre, dia, horario, edificio);
+    }
    
     
 }
