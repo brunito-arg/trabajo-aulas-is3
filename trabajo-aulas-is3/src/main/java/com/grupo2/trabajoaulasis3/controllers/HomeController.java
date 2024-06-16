@@ -36,7 +36,8 @@ public class HomeController {
             @RequestParam(value = "horario", required = false) String horarioStr,
             @RequestParam(value = "edificio", required = false) String edificio,
             Model model) {
-
+		materiaService.asignarAulas();
+		
         LocalTime horario = null;
         if (horarioStr != null && !horarioStr.isEmpty()) {
             horario = LocalTime.parse(horarioStr);

@@ -67,9 +67,10 @@
                 <th>Año</th>
                 <th>Día</th>
                 <th>Horario</th>
-                <th>Necesita Laboratorio</th>
+                <!--th>Necesita Laboratorio</th-->
                 <th>Aula</th>
                 <th>Docente</th>
+                <th>Cantidad de Estudiantes</th>
             </tr>
             </thead>
             <tbody>
@@ -82,9 +83,13 @@
                 <td th:text="${materia.year}"></td>
                 <td th:text="${materia.dia}"></td>
                 <td th:text="${materia.horario}"></td>
-                <td th:text="${materia.necesitaLaboratorio ? 'Sí' : 'No'}"></td>
-                <td th:text="${materia.aula.edificio + ' - ' + materia.aula.numero}"></td>
+                <!--td th:text="${materia.necesitaLaboratorio ? 'Sí' : 'No'}"></td-->
+                <td>
+					<a th:href="@{/aula/{idAula}(idAula=${materia.aula.id})}" style="color: #FFFFFF; text-decoration: none;"
+                       th:text="${materia.aula.edificio + ' - ' + materia.aula.numero}"></a>
+				</td>
                 <td th:text="${materia.docente.nombre}"></td>
+                <td th:text="${materia.estudiantes.size}"></td>
             </tr>
             </tbody>
         </table>

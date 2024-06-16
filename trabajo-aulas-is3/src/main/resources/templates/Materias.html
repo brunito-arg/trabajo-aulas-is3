@@ -80,7 +80,7 @@
 
 <div class="container mt-5"
      style="background-color: #343a40; color: #f8f9fa; padding: 4%; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
-    <h2 class="text-center">Estudiantes</h2>
+    <h2 class="text-center">Estudiantes (<span th:text="${materia.estudiantes.size}"/>)</h2>
     <div class="row" style="margin-top:4%">
         <div th:each="estudiante, iterStat : ${materia.estudiantes}" class="col-md-3" style="margin-bottom: 1%;">
             <span th:text="${estudiante.nombre}"></span>
