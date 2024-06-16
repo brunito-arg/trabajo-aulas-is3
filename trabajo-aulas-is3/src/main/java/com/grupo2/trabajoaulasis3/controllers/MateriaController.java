@@ -33,36 +33,6 @@ public class MateriaController {
         model.addAttribute("materia", materia);
         return "Materias.html"; // Nombre de la vista
     }
-    
-    @GetMapping("/buscar")
-    public String buscarMaterias(
-            @RequestParam(value = "nombre", required = false) String nombre,
-            @RequestParam(value = "dia", required = false) String dia,
-            @RequestParam(value = "horario", required = false) String horarioStr,
-            @RequestParam(value = "edificio", required = false) String edificio,
-            Model model) {
 
-        LocalTime horario = null;
-        if (horarioStr != null && !horarioStr.isEmpty()) {
-            horario = LocalTime.parse(horarioStr);
-        }
-
-        List<Materia> materias;
-        if (nombre == null && dia == null && horario == null && edificio == null) {
-            // Si todos los parámetros son nulos o vacíos, buscar todas las materias
-            materias = materiaRepository.findAll();
-        } else {
-            materias = materiaRepository.findByCriterios(
-                    nombre != null && nombre.isEmpty() ? null : nombre,
-                    dia != null && dia.isEmpty() ? null : dia,
-                    horario,
-                    edificio != null && edificio.isEmpty() ? null : edificio);
-        }
-
-        model.addAttribute("materias", materias);
-
-        return "BusquedaMaterias";
-    }
- 
 }
 

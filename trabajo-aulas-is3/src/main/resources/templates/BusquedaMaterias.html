@@ -2,82 +2,93 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Resultados de Búsqueda de Materias</title>
+    <title>Lista de Materias</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body>
-    <div class="container mt-5">
-        <h1>Resultados de Búsqueda de Materias</h1>
-        <div class="mt-4">
-            <form action="#" th:action="@{/materia/buscar}" th:object="${materia}" method="get">
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="dia">Día</label>
-                        <select class="form-control" id="dia" name="dia">
-                            <option value="" selected>Seleccionar...</option>
-                            <option value="Lunes">Lunes</option>
-                            <option value="Martes">Martes</option>
-                            <option value="Miércoles">Miércoles</option>
-                            <option value="Jueves">Jueves</option>
-                            <option value="Viernes">Viernes</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="horario">Horario</label>
-	                        <select class="form-control" id="horario" name="horario">
-							    <option value="" selected>Seleccionar...</option>
-							    <option value="08:00">08:00</option>
-							    <option value="14:00">14:00</option>
-							    <option value="18:00">18:00</option>
-						</select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="edificio">Edificio</label>
-                        <select class="form-control" id="edificio" name="edificio">
-                            <option value="" selected>Seleccionar...</option>
-                            <option value="Ugarte">Ugarte</option>
-                            <option value="Jauretche">Jauretche</option>
-                            <option value="Ortiz">Ortiz</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Buscar</button>
-            </form>
-        </div>
+<body style="background-color: #343a40; color: #f8f9fa;">
+<div class="container mt-5"
+     style="background-color: #343a40; color: #f8f9fa; padding: 5%; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
 
-        <div class="mt-4">
-            <h2>Resultados</h2>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Año</th>
-                        <th>Día</th>
-                        <th>Horario</th>
-                        <th>Necesita Laboratorio</th>
-                        <th>Aula</th>
-                        <th>Docente</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="materia : ${materias}">
-                        <td th:text="${materia.id}"></td>
-                        <td th:text="${materia.nombre}"></td>
-                        <td th:text="${materia.year}"></td>
-                        <td th:text="${materia.dia}"></td>
-                        <td th:text="${materia.horario}"></td>
-                        <td th:text="${materia.necesitaLaboratorio ? 'Sí' : 'No'}"></td>
-                        <td th:text="${materia.aula.edificio + ' - ' + materia.aula.numero}"></td>
-                        <td th:text="${materia.docente.nombre}"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <h1 style="color: #FFFFFF; text-align: center;">Lista de Materias</h1>
+    <div class="mt-4">
+        <form action="#" th:action="@{/inicio/home}" th:object="${materia}" method="get">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="nombre" style="color: #f8f9fa;">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre"
+                           style="background-color: #495057; color: #f8f9fa;">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="dia" style="color: #f8f9fa;">Día</label>
+                    <select class="form-control" id="dia" name="dia" style="background-color: #495057; color: #f8f9fa;">
+                        <option value="" selected>Seleccionar...</option>
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miércoles">Miércoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="horario" style="color: #f8f9fa;">Horario</label>
+                    <select class="form-control" id="horario" name="horario"
+                            style="background-color: #495057; color: #f8f9fa;">
+                        <option value="" selected>Seleccionar...</option>
+                        <option value="08:00">08:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="18:00">18:00</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="edificio" style="color: #f8f9fa;">Edificio</label>
+                    <select class="form-control" id="edificio" name="edificio"
+                            style="background-color: #495057; color: #f8f9fa;">
+                        <option value="" selected>Seleccionar...</option>
+                        <option value="Ugarte">Ugarte</option>
+                        <option value="Jauretche">Jauretche</option>
+                        <option value="Ortiz">Ortiz</option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; margin-top: 3%;">
+                <button type="submit" class="btn btn-primary"
+                        style="background-color: #007bff; border-color: #007bff; color: #f8f9fa;">Buscar
+                </button>
+            </div>
+        </form>
     </div>
+    <div class="mt-4">
+        <h2 style="color: #FFFFFF; text-align: center;">Resultados</h2>
+        <table class="table table-bordered" style="background-color: #495057; color: #f8f9fa;">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Año</th>
+                <th>Día</th>
+                <th>Horario</th>
+                <th>Necesita Laboratorio</th>
+                <th>Aula</th>
+                <th>Docente</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="materia : ${materias}">
+                <td th:text="${materia.id}"></td>
+                <td>
+                    <a th:href="@{/materia/{id}(id=${materia.id})}" style="color: #FFFFFF; text-decoration: none;"
+                       th:text="${materia.nombre}"></a>
+                </td>
+                <td th:text="${materia.year}"></td>
+                <td th:text="${materia.dia}"></td>
+                <td th:text="${materia.horario}"></td>
+                <td th:text="${materia.necesitaLaboratorio ? 'Sí' : 'No'}"></td>
+                <td th:text="${materia.aula.edificio + ' - ' + materia.aula.numero}"></td>
+                <td th:text="${materia.docente.nombre}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>
