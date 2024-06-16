@@ -1,7 +1,9 @@
 package com.grupo2.trabajoaulasis3.controllers;
 
+import java.time.LocalTime;
 import java.util.List;
 
+import com.grupo2.trabajoaulasis3.repositories.IMateriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -23,31 +25,38 @@ public class HomeController {
 	@Autowired
 	@Qualifier("materiaService")
     private IMateriaService materiaService;
+    @Autowired
+    private IMateriaRepository materiaRepository;
 	
 	
 	@GetMapping("/home")
-	public String home(Model model) {
+    public String buscarMaterias(
+            @RequestParam(value = "nombre", required = false) String nombre,
+            @RequestParam(value = "dia", required = false) String dia,
+            @RequestParam(value = "horario", required = false) String horarioStr,
+            @RequestParam(value = "edificio", required = false) String edificio,
+            Model model) {
 		materiaService.asignarAulas();
 		
-		List<Materia> materiaLista = materiaService.findAll();
-		
-		model.addAttribute("titulo", "Lista de materias");
-		model.addAttribute("materiaLista", materiaLista);
-		
-		return ViewRouterHelper.HOME_INDEX;
-		
-	}
-	
-	@GetMapping("/buscar")
-    public String buscar(@RequestParam("id") int id, Model model) {
-        Materia materia = materiaService.findByIdMateria(id);
-        if (materia != null) {
-            model.addAttribute("materia", materia);
-            return "Materias.html"; 
-        } else {
-            model.addAttribute("error", "Materia no encontrada");
-            return "Error.html"; // Vista de error
+        LocalTime horario = null;
+        if (horarioStr != null && !horarioStr.isEmpty()) {
+            horario = LocalTime.parse(horarioStr);
         }
+
+        List<Materia> materias;
+        if (nombre == null && dia == null && horario == null && edificio == null) {
+            // Si todos los parámetros son nulos o vacíos, buscar todas las materias
+            materias = materiaRepository.findAll();
+        } else {
+            materias = materiaRepository.findByCriterios(
+                    nombre != null && nombre.isEmpty() ? null : nombre,
+                    dia != null && dia.isEmpty() ? null : dia,
+                    horario,
+                    edificio != null && edificio.isEmpty() ? null : edificio);
+        }
+
+        model.addAttribute("materias", materias);
+
+        return "BusquedaMaterias";
     }
-	
 }
